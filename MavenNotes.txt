@@ -1,0 +1,87 @@
+WHAT IS MAVEN?
+
+Maven is a popular open-source build tool developed by the Apache Group to build, 
+publish, and deploy several projects at once for better project management.
+The tool provides allows developers to build and document the lifecycle framework.
+ It is used for projects build, dependency and documentation.
+Maven project structure and contents are declared in an xml file, pom.xml,
+ referred as Project Object Model (POM), which is the fundamental unit of the entire Maven system.
+ 
+USAGE OF MAVEN:
+
+Maven’s purpose is to provide developers with:
+
+A comprehensive, maintainable, reusable, and simple model for projects.
+
+A set of tools and plug-ins that can interact with the declarative model.
+
+Simple project setup that follows best practices.
+
+Consistent usage across all projects.
+
+Dependency management including automatic updating.
+
+A large and growing repository of libraries.
+
+Extensible, with the ability to easily write plugins in Java or scripting languages.
+
+Instant access to new features with little or no extra configuration.
+
+
+
+
+HOW TO CREATE MAVEN PROJECT?
+
+for standalone application we have to provide artifactId maven-archetype-quickstart.
+
+for webapplication application we have to provide artifactId maven-archetype-webapp.
+
+
+
+
+COMMANDS IN MAVEN AND IT'S USAGE:
+
+
+Maven Command--------------------------------Description
+mvn --version	--------------------Prints out the version of Maven you are running.
+mvn clean------------Clears the target directory into which Maven normally builds your project.
+mvn package-------Builds the project and packages the resulting JAR file into the target directory.
+mvn package -Dmaven.test.skip=true---------------Builds the project and packages the resulting JAR file into the target directory - without running the unit tests during the build.
+mvn clean package----------------------Clears the target directory and Builds the project and packages the resulting JAR file into the target directory.
+mvn clean package -Dmaven.test.skip=true-----------------Clears the target directory and builds the project and packages the resulting JAR file into the target directory - without running the unit tests during the build.
+mvn verify-------------Runs all integration tests found in the project.
+mvn clean verify----------Cleans the target directory, and runs all integration tests found in the project.
+mvn install---------------------Builds the project described by your Maven POM file and installs the resulting artifact (JAR) into your local Maven repository
+mvn install -Dmaven.test.skip=true----------------Builds the project described by your Maven POM file without running unit tests, and installs the resulting artifact (JAR) into your local Maven repository
+mvn clean install------------------Clears the target directory and builds the project described by your Maven POM file and installs the resulting artifact (JAR) into your local Maven repository
+mvn clean install -Dmaven.test.skip=true------------Clears the target directory and builds the project described by your Maven POM file without running unit tests, and installs the resulting artifact (JAR) into your local Maven repository
+mvn dependency:copy-dependencies--------------Copies dependencies from remote Maven repositories to your local Maven repository.
+mvn clean dependency:copy-dependencies--------------Cleans project and copies dependencies from remote Maven repositories to your local Maven repository.
+mvn clean dependency:copy-dependencies package------------Cleans project, copies dependencies from remote Maven repositories to your local Maven repository and packages your project.
+mvn dependency:tree--------------------Prints out the dependency tree for your project - based on the dependencies configured in the pom.xml file.
+mvn dependency:tree -Dverbose----------Prints out the dependency tree for your project - based on the dependencies configured in the pom.xml file. Includes repeated, transitive dependencies.
+mvn dependency:tree -Dincludes=com.fasterxml.jackson.core-----------Prints out the dependencies from your project which depend on the com.fasterxml.jackson.core artifact.
+mvn dependency:tree -Dverbose -Dincludes=com.fasterxml.jackson.core-----------Prints out the dependencies from your project which depend on the com.fasterxml.jackson.core artifact. Includes repeated, transitive dependencies.
+mvn dependency:build-classpath---------Prints out the classpath needed to run your project (application) based on the dependencies configured in the pom.xml file.
+
+
+MAVEN LIFECYCLE:
+
+
+
+A Build Lifecycle is a well-defined sequence of phases, which define the order in which 
+the goals are to be executed. Here phase represents a stage in life cycle. As an example, 
+a typical Maven Build Lifecycle consists of the following sequence of phases.
+
+
+
+
+-----Phase	            ------Handles	              ---------------Description
+prepare-resources	resource copying	      Resource copying can be customized in this phase.
+validate	        Validating the information    Validates if the project is correct and if all necessary information is available.
+compile	                compilation	              Source code compilation is done in this phase.
+Test	                Testing	                      Tests the compiled source code suitable for testing framework.
+package          	packaging	              This phase creates the JAR/WAR package as mentioned in the packaging in POM.xml.
+install	                installation	              This phase installs the package in local/remote maven repository.
+Deploy	                Deploying	              Copies the final package to the remote repository.
+
